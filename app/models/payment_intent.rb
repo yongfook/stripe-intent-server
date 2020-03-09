@@ -1,2 +1,0 @@
-class PaymentIntent < ApplicationRecord
-end
