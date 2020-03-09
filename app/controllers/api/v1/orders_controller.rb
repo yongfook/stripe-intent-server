@@ -16,7 +16,7 @@ class Api::V1::OrdersController < ApplicationController
 		begin
 			payload = request.body.read
 			sig_header = request.env['HTTP_STRIPE_SIGNATURE']
-			endpoint_secret = Rails.application.credentials.stripe_webhook_key
+			endpoint_secret = Rails.application.credentials[Rails.env.to_sym].stripe_webhook_key
 			event = Stripe::Webhook.construct_event(payload, sig_header, endpoint_secret)
 			if event.type == "payment_intent.succeeded"
 				@payment_intent = event.data.object # contains a Stripe::PaymentIntent
