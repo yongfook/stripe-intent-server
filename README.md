@@ -27,4 +27,4 @@ Then run
 ## Suggested future improvements
 
 I felt that these items fell outside the scope of this task but if I were to make this production-ready, I might work on:
-1. Protect the order list API endpoint with auth
+1. Protect the orders index list API endpoint with auth, this is only meant for admins to see
