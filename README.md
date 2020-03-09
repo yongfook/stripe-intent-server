@@ -1,24 +1,25 @@
-# README
+This API server has been deployed to Heroku at:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+http://yongfook-stripe-intent-server.herokuapp.com
 
-Things you may want to cover:
+The client has this host already hard-coded (yes, I know, yuck) in the source:
+https://github.com/yongfook/stripe-intent-client
 
-* Ruby version
+This project uses Rails Credentials. If you would like to run this API server locally, you will need to generate your own Rails `master.key` file and set up the credentials config which then gets encrypted. The credentials config should look like:
 
-* System dependencies
+```
+secret_key_base: 
 
-* Configuration
+stripe_publishable_key: 
+stripe_secret_key: 
 
-* Database creation
+development:
+  stripe_webhook_key: 
 
-* Database initialization
+production:
+  stripe_webhook_key: 
+```
 
-* How to run the test suite
+Then run
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`foreman s`
