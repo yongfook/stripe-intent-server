@@ -1,6 +1,9 @@
 class Api::V1::PaymentIntentsController < ApplicationController
 
 	def create
+		return render :json => {:message => "Required parameter: name"}, :status => :bad_request if !params[:name].present?
+		return render :json => {:message => "Required parameter: address"}, :status => :bad_request if !params[:address].present?
+
 
 		begin
 			Stripe.api_key = Rails.application.credentials.stripe_secret_key
@@ -15,5 +18,5 @@ class Api::V1::PaymentIntentsController < ApplicationController
 			return render :json => {:message => e.message}, :status => :internal_server_error
 		end
 	end
-	
+
 end
